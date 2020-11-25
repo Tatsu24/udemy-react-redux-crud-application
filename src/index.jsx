@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
 import './index.css';
 import reducer from './reducers'
-import App from './components/App.jsx';
+import EventsIndex from './components/events_index.jsx';
 import reportWebVitals from './reportWebVitals';
 
-const store = createStore(reducer)
+// thunkを使うことで
+// action の代わりに関数を返すことができる
+const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <EventsIndex />
   </Provider>,
   document.getElementById('root')
 );
