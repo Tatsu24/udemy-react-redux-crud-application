@@ -10,12 +10,10 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case INCREMENT:
-            return {
-                value: stete.value + 1
-            };
+            return { value: state.value + 1 };
         case DECREMENT:
             return {
-                value: stete.value - 1
+                value: state.value - 1
             };
         default:
             return state;
